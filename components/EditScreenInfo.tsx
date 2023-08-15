@@ -5,8 +5,9 @@ import Colors from '../constants/Colors';
 import { ExternalLink } from './ExternalLink';
 import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
+import WebView from 'react-native-webview';
 
-export default function EditScreenInfo({ path }: { path: string }) {
+export default function EditScreenInfo({ quote, writer }: { quote: string, writer?: string }) {
   return (
     <View>
       <View style={styles.getStartedContainer}>
@@ -14,33 +15,34 @@ export default function EditScreenInfo({ path }: { path: string }) {
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          Open up the code for this screen:
+          Remember:
         </Text>
 
         <View
           style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
           darkColor="rgba(255,255,255,0.05)"
           lightColor="rgba(0,0,0,0.05)">
-          <MonoText>{path}</MonoText>
+          <MonoText>{quote}</MonoText>
         </View>
 
         <Text
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          Change any of the text, save the file, and your app will automatically update.
+          {writer ? writer : "Nitendra Rana"}
         </Text>
       </View>
 
       <View style={styles.helpContainer}>
         <ExternalLink
           style={styles.helpLink}
-          href="https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet">
+          href="https://www.linkedin.com/in/nitendra-rana-904685237/">
           <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
-            Tap here if your app doesn't automatically update after making changes
+            reach me out in Linkedin
           </Text>
         </ExternalLink>
       </View>
+      {/* <WebView source={{ uri: 'https://www.youtube.com/' }}/> */}
     </View>
   );
 }
